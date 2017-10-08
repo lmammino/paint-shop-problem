@@ -4,7 +4,7 @@
   "description": "Luciano's solution to the paint shop problem",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose --coverage"
   },
   "keywords": [
     "paint shop",
