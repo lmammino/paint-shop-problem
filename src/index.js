@@ -28,7 +28,7 @@ try {
 const data = fileParser(inputFile)
 const result = solver(data)
 
-console.log(JSON.stringify(result, null, 2))
+console.log(result)
 
 } catch (err) {
   console.error(err)
