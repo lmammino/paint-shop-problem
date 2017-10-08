@@ -1,0 +1,966 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>{{ title }}</title>
+  <style>.markdown-body {margin: 2em auto; padding: 1em}</style>
+  <style>
+/**
+ *  https://github.com/sindresorhus/github-markdown-css
+ */
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  padding-left: 8px;
+  margin-left: -30px;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4183c4;
+}
+</style>
+  <link rel="stylesheet" href="/template/highlight/styles/github.css" />
+  <script src="/template/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>.MathJax:focus, body :focus .MathJax { outline: none; }</style>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: [ "TeX" ],
+        linebreaks: { automatic: true },
+        EqnChunk: 10,
+        imageFont: null
+      },
+      tex2jax: {
+        inlineMath: [["$","$"],["\\(","\\)"],["\\\\(","\\\\)"]],
+        displayMath: [["$$","$$"],["\\[","\\]"]],
+        processEscapes: false
+      },
+      messageStyle: "none"
+    });
+  </script>
+  <script src="/node_modules/mathjax/MathJax.js"></script>
+</head>
+<body>
+  <div class="markdown-body">
+    <h1 id="paint-shop-problem">Paint shop problem</h1>
+<p>This code is my attempt at solving the &quot;Paint Shop Problem&quot;, problem commonly used in interviews or coding challenges.</p>
+<p><a href="PROBLEM.md">Read the problem assignment</a></p>
+<h2 id="toc">ToC</h2>
+<ol>
+<li><a href="#running-the-code">Running the code</a></li>
+<li><a href="#the-solution-algorithm">The solution algorithm</a></li>
+<li><a href="#source-code">Source code</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#possible-optimizations">Possible optimizations</a></li>
+<li><a href="#complexity">Complexity</a></li>
+<li><a href="#license">License</a></li>
+</ol>
+<h2 id="running-the-code">Running the code</h2>
+<h3 id="requirements">Requirements</h3>
+<p>In order to run the code you will need Node.js (version <code>&gt;= 6.12</code>) installed.</p>
+<h3 id="dependencies">Dependencies</h3>
+<p>The code does not use any library, exception made for the tests. If you are planning to run the test files you have to run:</p>
+<pre><code class="lang-bash">npm install
+</code></pre>
+<p>Before starting.</p>
+<h3 id="running">Running</h3>
+<p>The solution is constructed as a command line program that accepts the path to the input file as first (and only parameter).</p>
+<p>The command can be executed with:</p>
+<pre><code class="lang-bash">node src/index.js &lt;path to input file&gt;
+</code></pre>
+<p>The example files from the problem description are stored in <a href="examples"><code>examples</code></a> so you can run the program against them. E.g:</p>
+<pre><code class="lang-bash">node src/index.js examples/case1.txt
+</code></pre>
+<p>You can also pass <code>--help</code> or <code>-h</code> as first parameter to access the inline command line help.</p>
+<h2 id="the-solution-algorithm">The solution algorithm</h2>
+<p>In this section is described the solution algorithm I designed and implemented to solve the problem.</p>
+<p>The general idea is that the algorithm selects a color for every customers and tries to verify if the resulting sequence is an acceptable solution given the constraints defined by the problem.</p>
+<p>All the possible combinations are tested and explored in an order that guarantees compliance with the constraints (E.g a finish of type <code>Gloss</code> is always preferred to a finish of type <code>Matte</code> where possible).</p>
+<p>If a solution is found, the program stops immediately without exploring other possible solutions. If no solution is found (after testing all the sequences) the program outputs <code>No solution exists</code> and exit.</p>
+<h3 id="step-1-input-parsing">Step 1 — Input parsing</h3>
+<p>In this step the source file is parsed and converted in memory in a data structure the respects the following specification:</p>
+<pre><code class="lang-javascript">{
+  numColors: (int),
+  customerPreferences: [
+    [
+      {
+        color: (int),
+        finish: (&#39;M&#39;|&#39;G&#39;)
+      },
+      // ...
+    ],
+    // ...
+  ]
+}
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><code>numColors</code> is an integer defining the number of possible colors</li>
+<li><code>customerPreferences</code> is an array, where every element is an array of preferences for a given customer. Every preference contains a <code>color</code> (defined by an integer in the range [<code>1</code>-<code>numColors</code>]) and a <code>finish</code> (a char, either <code>G</code> for &quot;gloss&quot; or <code>M</code> for &quot;matte&quot;).</li>
+</ul>
+<p>The parser is quite dummy and doesn&#39;t try to detect malformed input files. So it will likely crash with invalid inputs without providing meaning errors.</p>
+<p>Also the parser assumes that the input file are quite small and load them directly in memory in a single blob, which is not ideal with big files.</p>
+<h3 id="step-2-input-preparation">Step 2 — Input preparation</h3>
+<p>In this step the object resulting from the parsing step is modified in order to make the successive steps easier to address.</p>
+<p>There are two main changes that are applied: &quot;preferences sorting&quot; and &quot;read only preferences marking&quot;.</p>
+<h4 id="preferences-sorting">Preferences sorting</h4>
+<p>For every customer, their preferences are sorted to comply with the following rules:</p>
+<ul>
+<li>A color in gloss comes always before a color in matte</li>
+<li>A color with an smaller index comes always before a color with a bigger index</li>
+</ul>
+<p>For example the following set of preferences for a customer:</p>
+<pre><code>4M 5G 1M 2G
+</code></pre><p>Gets sorted to:</p>
+<pre><code>2G 5G 1M 4M
+</code></pre><p>This step will make sure that, in the following steps, solutions that optimize the costs by having more gloss colors are preferred.</p>
+<h4 id="read-only-preferences">Read Only preferences</h4>
+<p>All the customers with a single preference of color (only one element in their array) gets the element marked as read only (additional property <code>readOnly</code> set to <code>true</code>).</p>
+<p>This step allows us to spot conflicting situations (invalid solutions) during the sequence validation phase.</p>
+<h3 id="step-3-determine-sequences-of-possible-solutions">Step 3. — Determine sequences of possible solutions</h3>
+<p>At this point the set of all the possible solutions to the problem can be constructed by choosing all the possible sequences that are defined by selecting (in order) one element per every customer.</p>
+<p>For instance, given the following set of &quot;prepared&quot; preferences (where the asterisk indicates a <code>readOnly</code> option):</p>
+<pre><code>3G 5G 1M
+2G 4G 3M
+5M*
+</code></pre><p>The set of the sorted possible solutions sequences is given by:</p>
+<ol>
+<li><code>3G 2G 5M*</code></li>
+<li><code>3G 4G 5M*</code></li>
+<li><code>3G 3M 5M*</code></li>
+<li><code>5G 2G 5M*</code></li>
+<li><code>5G 4G 5M*</code></li>
+<li><code>5G 3M 5M*</code></li>
+<li><code>1M 2G 5M*</code></li>
+<li><code>1M 4G 5M*</code></li>
+<li><code>1M 3M 5M*</code></li>
+</ol>
+<h3 id="step-4-sequence-validation">Step 4. — Sequence validation</h3>
+<p>In this step we have as input the total number of colors available and a single sequence coming from the previous step <strong>(1)</strong>.</p>
+<p>The validation algorithm follows these steps:</p>
+<ol>
+<li>Allocate colors array</li>
+<li>Apply elements of the sequence to the colors array</li>
+<li>Fill empty spaces of the colors array with <code>G</code></li>
+<li>Construct the solution string from the colors array</li>
+</ol>
+<p><strong>Note (1)</strong>: In the current implementation, steps 3 and 4 are intertwined in a streaming fashion and they are not really sequential: after a single sequence is generated (step 3), it is immediately validated (step 4). This way, as soon as the program identifies a valid solution it can stop computing possible successive sequences and exits.</p>
+<h4 id="step-4-1-allocate-colors-array">Step 4.1 — Allocate colors array</h4>
+<p>In this step an array of <code>null</code> of size <code>numColors</code> is generated. For instance if <code>numColors</code> is <code>5</code> the following array is generated:</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>null</code></td>
+<td><code>null</code></td>
+<td><code>null</code></td>
+<td><code>null</code></td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-4-2-apply-elements-of-the-sequence-to-the-colors-array">Step 4.2 — Apply elements of the sequence to the colors array</h4>
+<p>This is the main phase of the validation step. It follows will mutate the colors array as per the following rules:</p>
+<ul>
+<li>every cell of the colors array indicates a color (color 1 will go in index 0, color 2 in index 1 and so on...)</li>
+<li>for every preference in the current sequence:<ul>
+<li>if the cell for the current color is empty the finish of the current preference is copied in the cell</li>
+<li>if the cell for the current color is NOT empty, it can be overridden with a new finish only if the current color and the current preference are not read only</li>
+<li>if a cell cannot be overriden the current sequence is invalid and the validation algorithm stops immediately</li>
+</ul>
+</li>
+</ul>
+<p>An example execution for <code>5</code> colors and the sequence <code>3G 2G 5M*</code> will produce the following steps:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><em>(start)</em></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><em><code>3G</code> ⇒</em></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><strong>G</strong></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><em><code>2G</code> ⇒</em></td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><strong>G</strong></td>
+<td style="text-align:center">G</td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><em>`5M</em>` ⇒*</td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center">G</td>
+<td style="text-align:center">G</td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><strong>M</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-4-3-fill-empty-spaces-of-the-colors-array-with-g-">Step 4.3 — Fill empty spaces of the colors array with <code>G</code></h4>
+<p>In this step we simply fill the spaces in the colors array still containing null with <code>G</code> (if any). This will happen if no customer has specified a preference for some of the colors in the current sequence.</p>
+<p>From the previous example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">...</td>
+<td style="text-align:center">...</td>
+<td style="text-align:center">...</td>
+<td style="text-align:center">...</td>
+<td style="text-align:center">...</td>
+<td style="text-align:center">...</td>
+</tr>
+<tr>
+<td style="text-align:right"><em>`5M</em>` ⇒*</td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center">G</td>
+<td style="text-align:center">G</td>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><strong>M</strong></td>
+</tr>
+<tr>
+<td style="text-align:right"><em>(fill)</em></td>
+<td style="text-align:center"><strong>G</strong></td>
+<td style="text-align:center">G</td>
+<td style="text-align:center">G</td>
+<td style="text-align:center"><strong>G</strong></td>
+<td style="text-align:center">M</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-4-4-construct-the-solution-string-from-the-colors-array">Step 4.4 — Construct the solution string from the colors array</h4>
+<p>All the elements in the last line from the previous steps are concatenated (with a space in between) and this produces the expected solution.</p>
+<p>In the previous example: <code>G G G G M</code></p>
+<h2 id="source-code">Source code</h2>
+<p>Source code is available in the <a href="src">source folder (<code>src</code>)</a>. Code is modular and tests are co-located with every functionality.</p>
+<p>The code contains comments and it is written in a functional style, aiming to be as much expressive and readable as possible.</p>
+<h2 id="tests">Tests</h2>
+<p>Tests are written using <a href="https://facebook.github.io/jest/">Jest</a> and are saved inside <a href="src"><code>src</code></a> within <code>__tests__</code> folders.</p>
+<p>To run the tests simply run:</p>
+<pre><code class="lang-bash">npm test
+</code></pre>
+<h2 id="possible-optimizations">Possible optimizations</h2>
+<ol>
+<li>Make the parser streaming so that it could be able to load also large files</li>
+<li>Use a proper grammar based parser (<a href="extra/sample-grammar.ne">example grammar</a>) so that it can detect malformed input files</li>
+</ol>
+<h2 id="complexity">Complexity</h2>
+<p>If we identify with <code>n</code> the number of colors available and with <code>m</code> the number of customers, the computational complexity of this solution is <code>O(m * n^m)</code>.</p>
+<p>For example, if we have 5 colors and 3 customers, in the worst case where every customer specifies 5 preferences we end up with 5 <em> 5 </em> 5 (n^m) possible sequences to test. Every sequence verification takes at most 3 (m) steps to be verified, so we end up with a worst case complexity of <code>m * n^m</code>.</p>
+<h2 id="license">License</h2>
+<p>Licensed under <a href="LICENSE">MIT License</a>. © Luciano Mammino.</p>
+
+  </div>
+</body>
+</html>
+<script>(function () {
+
+  (window.mp = {
+      init: function() {
+        setInterval(function() {
+          var url = '/jsonp-request?callback=mp.jsonpCallback&s='+(+new Date());
+          mp.injectScript(url);
+        }, 1e3);
+      }
+    , injectScript: function(src) {
+        var stag = document.createElement('script');
+        stag.src = src;
+        document.body.appendChild(stag);
+        setTimeout(function() {
+          stag.parentNode.removeChild(stag);
+        }, 1e3);
+      }
+    , updateClient: function(html) {
+        window.location.reload();
+      }
+    , jsonpCallback: function(stamp, html) {
+        this.localStamp || (this.localStamp = stamp);
+        if (this.localStamp < stamp) {
+          this.localStamp = stamp;
+          this.updateClient(html);
+        }
+      }
+  }).init();
+
+})()</script>

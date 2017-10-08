@@ -25,11 +25,10 @@ if (!inputFile) {
 }
 
 try {
-const data = fileParser(inputFile)
-const result = solver(data)
+  const data = fileParser(inputFile)
+  const result = solver(data)
 
-console.log(result)
-
+  console.log(result)
 } catch (err) {
   console.error(err)
   process.exit(1)

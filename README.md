@@ -2,7 +2,17 @@
 
 This code is my attempt at solving the "Paint Shop Problem", problem commonly used in interviews or coding challenges.
 
-[Read the problem assignment](/PROBLEM.md)
+[Read the problem assignment](PROBLEM.md)
+
+## ToC
+
+  1. [Running the code](#running-the-code)
+  2. [The solution algorithm](#the-solution-algorithm)
+  3. [Source code](#source-code)
+  4. [Tests](#tests)
+  5. [Possible optimizations](#possible-optimizations)
+  6. [Complexity](#complexity)
+  7. [License](#license)
 
 
 ## Running the code
@@ -33,7 +43,7 @@ The command can be executed with:
 node src/index.js <path to input file>
 ```
 
-The example files from the problem description are stored in `[exmaples](/examples)` so you can run the program against them. E.g:
+The example files from the problem description are stored in [`examples`](examples) so you can run the program against them. E.g:
 
 ```bash
 node src/index.js examples/case1.txt
@@ -97,13 +107,13 @@ For every customer, their preferences are sorted to comply with the following ru
 
 For example the following set of preferences for a customer:
 
-```plain
+```
 4M 5G 1M 2G
 ```
 
 Gets sorted to:
 
-```plain
+```
 2G 5G 1M 4M
 ```
 
@@ -121,7 +131,7 @@ At this point the set of all the possible solutions to the problem can be constr
 
 For instance, given the following set of "prepared" preferences (where the asterisk indicates a `readOnly` option):
 
-```plain
+```
 3G 5G 1M
 2G 4G 3M
 5M*
@@ -141,24 +151,79 @@ The set of the sorted possible solutions sequences is given by:
 
 ### Step 4. — Sequence validation
 
-In this step we have as input the total number of colors available and a single sequence coming from the previous step<sup>(1)</sup>.
+In this step we have as input the total number of colors available and a single sequence coming from the previous step **(1)**.
 
-...
+The validation algorithm follows these steps:
 
+  1. Allocate colors array
+  2. Apply elements of the sequence to the colors array
+  3. Fill empty spaces of the colors array with `G`
+  4. Construct the solution string from the colors array
 
+**Note (1)**: In the current implementation, steps 3 and 4 are intertwined in a streaming fashion and they are not really sequential: after a single sequence is generated (step 3), it is immediately validated (step 4). This way, as soon as the program identifies a valid solution it can stop computing possible successive sequences and exits.
 
+#### Step 4.1 — Allocate colors array
 
-<bold>Note<sup>(1)</sup></bold>: In the current implementation, steps 3 and 4 are intertwined in a streaming fashion and they are not really sequential: after a single sequence is generated (step 3), it is immediately validated (step 4). This way, as soon as the program identifies a valid solution it can stop computing possible successive sequences and exits.
+In this step an array of `null` of size `numColors` is generated. For instance if `numColors` is `5` the following array is generated:
+
+| 0 | 1 | 2 | 3 | 4 |
+| --- | --- | --- | --- | --- |
+| `null` |  `null` |  `null` |  `null` |  `null` |
+
+#### Step 4.2 — Apply elements of the sequence to the colors array
+
+This is the main phase of the validation step. It follows will mutate the colors array as per the following rules:
+
+  - every cell of the colors array indicates a color (color 1 will go in index 0, color 2 in index 1 and so on...)
+  - for every preference in the current sequence:
+    - if the cell for the current color is empty the finish of the current preference is copied in the cell
+    - if the cell for the current color is NOT empty, it can be overridden with a new finish only if the current color and the current preference are not read only
+    - if a cell cannot be overriden the current sequence is invalid and the validation algorithm stops immediately
+
+An example execution for `5` colors and the sequence `3G 2G 5M*` will produce the following steps:
+
+|   | 0 | 1 | 2 | 3 | 4 |
+| ---: | :---: | :---: | :---: | :---: | :---: |
+| *(start)* | `null` |  `null` |  `null` |  `null` |  `null` |
+| *`3G` ⇒* | `null` |  `null` |  **G** |  `null` |  `null` |
+| *`2G` ⇒* | `null` |  **G** |  G |  `null` |  `null` |
+| *`5M*` ⇒* | `null` |  G |  G |  `null` |  **M** |
+
+#### Step 4.3 — Fill empty spaces of the colors array with `G`
+
+In this step we simply fill the spaces in the colors array still containing null with `G` (if any). This will happen if no customer has specified a preference for some of the colors in the current sequence.
+
+From the previous example:
+
+|   | 0 | 1 | 2 | 3 | 4 |
+| ---: | :---: | :---: | :---: | :---: | :---: |
+| ... | ... |  ... |  ... |  ... |  ... |
+| *`5M*` ⇒* | `null` |  G |  G |  `null` |  **M** |
+| *(fill)* | **G** |  G |  G |  **G** |  M |
+
+#### Step 4.4 — Construct the solution string from the colors array
+
+All the elements in the last line from the previous steps are concatenated (with a space in between) and this produces the expected solution.
+
+In the previous example: `G G G G M`
 
 
 ## Source code
 
-...
+Source code is available in the [source folder (`src`)](src). Code is modular and tests are co-located with every functionality.
+
+The code contains comments and it is written in a functional style, aiming to be as much expressive and readable as possible.
 
 
 ## Tests
 
-...
+Tests are written using [Jest](https://facebook.github.io/jest/) and are saved inside [`src`](src) within `__tests__` folders.
+
+To run the tests simply run:
+
+```bash
+npm test
+```
 
 
 ## Possible optimizations
@@ -169,9 +234,11 @@ In this step we have as input the total number of colors available and a single 
 
 ## Complexity
 
-...
+If we identify with `n` the number of colors available and with `m` the number of customers, the computational complexity of this solution is `O(m * n^m)`.
+
+For example, if we have 5 colors and 3 customers, in the worst case where every customer specifies 5 preferences we end up with 5 * 5 * 5 (n^m) possible sequences to test. Every sequence verification takes at most 3 (m) steps to be verified, so we end up with a worst case complexity of `m * n^m`.
 
 
 ## License
 
-Licensed under [MIT License](/LICENSE). © Luciano Mammino.
+Licensed under [MIT License](LICENSE). © Luciano Mammino.

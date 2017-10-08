@@ -11,7 +11,7 @@ const getCandidateSolution = (i, customerPreferences) => {
   return candidateSolution
 }
 
-const candidateSolutions = (customerPreferences) => function* getNext() {
+const candidateSolutions = (customerPreferences) => function * getNext () {
   const combinations = customerPreferences.reduce((acc, curr) => acc * curr.length, 1)
   for (let i = 0; i < combinations; i++) {
     yield getCandidateSolution(i, customerPreferences)
@@ -22,7 +22,7 @@ const candidateSolutions = (customerPreferences) => function* getNext() {
 
 const sortColor = (a, b) => {
   // G is always smaller than M
-  if (a.finish === 'G' && b.finish === 'M' ) {
+  if (a.finish === 'G' && b.finish === 'M') {
     return -1
   }
 
@@ -32,7 +32,7 @@ const sortColor = (a, b) => {
   }
 
   // if same finish, sort by color ascendent
-  return a.color - b.color;
+  return a.color - b.color
 }
 
 const prepareCustomerPreferences = (customerPreferences) =>
@@ -50,10 +50,9 @@ const prepareCustomerPreferences = (customerPreferences) =>
 
 const validateSolution = (numColors, candidate) => {
   // colors is the working array, is created with numColors cells initialized to null
-  const colors = Array.from({length:numColors}, i => null)
+  const colors = Array.from({length: numColors}, i => null)
 
   const found = candidate.every(preference => {
-
     // if trying to override a readOnly color (or using a readOnly color to override)
     // the solution is not valid
     if (
