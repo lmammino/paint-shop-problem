@@ -9,8 +9,7 @@
   "scripts": {
     "test:lint": "eslint src",
     "test:unit": "jest --verbose --coverage",
-    "test": "npm run test:lint && npm run test:unit",
-    "build:readme": "ghmd README.md --dest README.html"
+    "test": "npm run test:lint && npm run test:unit"
   },
   "keywords": [
     "paint shop",
@@ -30,10 +29,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "github-markdown": "^3.2.0",
-    "jest": "^21.2.1",
-    "markdown-preview": "^0.4.1",
-    "primer-css": "^9.5.0"
+    "jest": "^21.2.1"
   },
   "jest": {
     "collectCoverageFrom": [
