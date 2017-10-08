@@ -1,14 +1,22 @@
 {
   "name": "paint-shop-problem",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Luciano's solution to the paint shop problem",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "paint shop",
+    "problem",
+    "alghoritm",
+    "array",
+    "combinatory",
+    "interview",
+    "challenge"
+  ],
+  "author": "Luciano Mammino",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^21.2.1"
   }

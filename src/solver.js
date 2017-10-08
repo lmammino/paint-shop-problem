@@ -89,7 +89,7 @@ const validateSolution = (numColors, candidate) => {
     })
     // flattens the colors into a string of finish options by index
     .map(c => c.finish)
-    .join('')
+    .join(' ')
 
   return result
 }
