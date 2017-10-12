@@ -6,7 +6,8 @@ describe('Verify pre-defined cases', () => {
     ['case1.txt', 'G G G G M'],
     ['case2.txt', 'No solution exists'],
     ['case3.txt', 'G M G M G'],
-    ['case4.txt', 'M M']
+    ['case4.txt', 'M M'],
+    ['case5.txt', 'M M M']
   ]
 
   cases.forEach(([file, expectedOutput], index) => {

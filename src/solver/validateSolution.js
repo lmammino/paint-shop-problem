@@ -1,4 +1,12 @@
-const validateSolution = (numColors, candidate) => {
+// Verifies if the current solution is making every customer happy by checking
+// that at least one of their preferences is satisfied by the current result
+const isSatisfyingAllPreferences = (result, customerPreferences) => {
+  return customerPreferences.every(preferences => {
+    return preferences.some(selection => result[selection.color - 1] === selection.finish)
+  })
+}
+
+const validateSolution = (numColors, candidate, customerPreferences) => {
   // colors is the working array, is created with numColors cells initialized to null
   const colors = Array.from({length: numColors}, i => null)
 
@@ -38,9 +46,13 @@ const validateSolution = (numColors, candidate) => {
     })
     // flattens the colors into a string of finish options by index
     .map(c => c.finish)
-    .join(' ')
 
-  return result
+  // verifies that the current solution is satisfying all customers
+  if (!isSatisfyingAllPreferences(result, customerPreferences)) {
+    return false
+  }
+
+  return result.join(' ')
 }
 
 module.exports = validateSolution

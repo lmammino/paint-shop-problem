@@ -7,7 +7,7 @@ const solver = ({ numColors, customerPreferences }) => {
   const candidates = candidateSolutions(p)
 
   for (let candidate of candidates()) {
-    const solution = validateSolution(numColors, candidate)
+    const solution = validateSolution(numColors, candidate, p)
     if (solution) {
       return solution
     }
